@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
@@ -17,6 +17,11 @@
     <a href="/surveycreator">Create Survey</a>
     <br>
     <a href="/surveyviewer">View Surveys</a>
+    <form action="/" method="POST">
+        First name: <input type="text" name="fname"><br>
+        Last name: <input type="text" name="lname"><br>
+        <input type="submit" value="Submit">
+    </form>
     </body>
     <footer>Class HBV501G, University of Iceland , Fall 2015</footer>
 </html>
