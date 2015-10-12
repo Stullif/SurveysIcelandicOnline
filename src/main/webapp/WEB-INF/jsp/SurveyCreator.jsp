@@ -53,6 +53,7 @@
 
 </select>
 </label>
+<p>Entry in database: ${surveyName}</p>
 </body>
 <footer>Class HBV501G, University of Iceland, Fall 2015</footer>
 </html>

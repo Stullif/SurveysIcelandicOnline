@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import project.model.SurveyManager;
 import project.service.StringManipulationService;
 
 @Controller
@@ -76,8 +77,11 @@ public class HomeController {
         String[] options = new String[]{"Drop Down Menu","Radio Button","Text Input","Multiple Choice"};
         model.addAttribute("numAttributes", options.length);
         for(int i = 0; i < options.length; i++) {
-            model.addAttribute("option"+i, options[i]);
+            model.addAttribute("option" + i, options[i]);
         }
+        SurveyManager surveyManager = new SurveyManager();
+        //surveyManager.output = "this is really happening";
+        model.addAttribute("surveyName",surveyManager.output);
         return "SurveyCreator";
     }
     @RequestMapping(value = "/surveyviewer", method = RequestMethod.GET)

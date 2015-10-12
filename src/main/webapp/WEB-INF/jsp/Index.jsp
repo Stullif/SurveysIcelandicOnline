@@ -6,7 +6,7 @@
 <html lang="en">
     <head>
         <title>Survey System</title>
-        <link rel="stylesheet" href="/src/main/webapp/resources/css/style.css" type=text/css/>
+        <link rel="stylesheet" href="/css/style.css" type='text/css'>
     </head>
     <body>
 
