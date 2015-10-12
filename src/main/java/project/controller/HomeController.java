@@ -14,6 +14,7 @@ public class HomeController {
 
     // Instance Variables
     StringManipulationService stringService;
+    static SurveyManager surveyManager = new SurveyManager();
 
     // Dependency Injection
     @Autowired
@@ -88,8 +89,7 @@ public class HomeController {
         for(int i = 0; i < options.length; i++) {
             model.addAttribute("option" + i, options[i]);
         }
-        SurveyManager surveyManager = new SurveyManager();
-        //surveyManager.output = "this is really happening";
+        //SurveyManager surveyManager = new SurveyManager();
         model.addAttribute("surveyName",surveyManager.output);
         return "SurveyCreator";
     }
