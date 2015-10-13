@@ -105,7 +105,7 @@ public class HomeController {
 
         ArrayList<String> list = this.populateDropDownList(this.options);
         model.addAttribute("optionList", list);
-
+        model.addAttribute("survey", survey);
         if(survey.isFinished()) {
             return "CreationComplete";
         }

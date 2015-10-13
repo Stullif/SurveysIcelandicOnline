@@ -6,9 +6,13 @@ import java.util.ArrayList;
  */
 public class Survey {
     private boolean finished = false;
+    private ArrayList<SurveyQuestion> questions = new ArrayList<SurveyQuestion>();
 
     public Survey() {
 
+    }
+    public void addSurveyQuestion(SurveyQuestion question) {
+        this.questions.add(question);
     }
     public boolean isFinished() {
         return this.finished;
