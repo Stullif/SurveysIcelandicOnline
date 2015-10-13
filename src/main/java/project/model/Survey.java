@@ -9,7 +9,9 @@ public class Survey {
     private String name;
     private int questionCounter = 0;
     private ArrayList<SurveyQuestion> questions = new ArrayList<SurveyQuestion>();
+    public Survey() {
 
+    }
     public Survey(String name) {
         this.name = name;
     }

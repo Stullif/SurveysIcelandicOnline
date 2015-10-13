@@ -96,7 +96,7 @@ public class HomeController {
     public String surveycreator(Model model) {
         ArrayList<String> list = this.populateDropDownList(this.options);
         model.addAttribute("optionList", list);
-        model.addAttribute("survey", new Survey());
+        model.addAttribute("survey", new Survey("Test Survey"));
         return "SurveyCreator";
     }
     @RequestMapping(value = "/surveycreator", method = RequestMethod.POST)
