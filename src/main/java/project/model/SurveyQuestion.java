@@ -14,4 +14,13 @@ public class SurveyQuestion {
         this.options = options;
         this.type = type;
     }
+    public String getQuestion() {
+        return this.question;
+    }
+    public String getType() {
+        return this.type;
+    }
+    public ArrayList<String> getSurveyOptions() {
+        return this.options;
+    }
 }
