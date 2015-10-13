@@ -7,7 +7,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import project.model.SurveyManager;
+import project.model.Survey;
 import project.service.StringManipulationService;
+import java.util.ArrayList;
+import javax.servlet.http.HttpServletRequest;
 
 @Controller
 public class HomeController {
@@ -15,7 +18,14 @@ public class HomeController {
     // Instance Variables
     StringManipulationService stringService;
     static SurveyManager surveyManager = new SurveyManager();
-
+    private String[] options = new String[]{"Drop Down Menu","Radio Button","Text Input","Multiple Choice"};
+    private ArrayList<String> populateDropDownList(String[] input) {
+        ArrayList<String> list = new ArrayList<String>();
+        for(int i = 0; i < input.length; i++) {
+            list.add(input[i]);
+        }
+        return list;
+    }
     // Dependency Injection
     @Autowired
     public HomeController(StringManipulationService stringService) {
@@ -84,14 +94,21 @@ public class HomeController {
 
     @RequestMapping(value = "/surveycreator", method = RequestMethod.GET)
     public String surveycreator(Model model) {
-        String[] options = new String[]{"Drop Down Menu","Radio Button","Text Input","Multiple Choice"};
-        model.addAttribute("numAttributes", options.length);
-        java.util.ArrayList<String> list = new java.util.ArrayList<String>();
-        for(int i = 0; i < options.length; i++) {
-            model.addAttribute("option" + i, options[i]);
-            list.add(options[i]);
-        }
+        ArrayList<String> list = this.populateDropDownList(this.options);
         model.addAttribute("optionList", list);
+        model.addAttribute("survey", new Survey());
+        return "SurveyCreator";
+    }
+    @RequestMapping(value = "/surveycreator", method = RequestMethod.POST)
+    public String surveycreator(@ModelAttribute("survey") Survey survey, HttpServletRequest request, Model model) {
+        survey.setFinished(null != request.getParameter("finished"));
+
+        ArrayList<String> list = this.populateDropDownList(this.options);
+        model.addAttribute("optionList", list);
+
+        if(survey.isFinished()) {
+            return "CreationComplete";
+        }
         return "SurveyCreator";
     }
     @RequestMapping(value = "/surveyviewer", method = RequestMethod.GET)

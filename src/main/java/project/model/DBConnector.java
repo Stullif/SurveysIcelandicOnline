@@ -11,7 +11,7 @@ public class DBConnector {
     private Statement st;
     private ResultSet resultSet;
     private ArrayList<String> results;
-    public String output;
+    public String user = "postgres";
     public String password = "Enter your password here";
     public String dbLink = "jdbc:postgresql://localhost:5432/Surveys";
     public DBConnector() {
@@ -25,7 +25,7 @@ public class DBConnector {
                 " PRIMARY KEY ( id ))";
         try{
             Class.forName("org.postgresql.Driver");
-            c = DriverManager.getConnection(dbLink, "postgres", password);
+            c = DriverManager.getConnection(dbLink, user, password);
             st = c.createStatement();
             st.executeUpdate("DROP TABLE IF EXISTS SURVEYS");
             st.executeUpdate(sql);

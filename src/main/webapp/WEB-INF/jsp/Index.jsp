@@ -8,7 +8,7 @@
         <title>Survey System</title>
         <link rel="stylesheet" href="/css/style.css" type='text/css'>
     </head>
-    <body>
+    <body class="center">
 
     <h1>Survey Interface</h1>
     <p>Please Select </p>
