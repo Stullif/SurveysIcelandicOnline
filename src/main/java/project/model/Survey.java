@@ -10,10 +10,12 @@ public class Survey {
     private int questionCounter = 0;
     private ArrayList<SurveyQuestion> questions = new ArrayList<SurveyQuestion>();
     public Survey() {
+        //System.out.println("maknming a new suirvay");
 
     }
     public Survey(String name) {
         this.name = name;
+        System.out.println("maknming a new suirvay");
     }
     public void addSurveyQuestion(String question, String type, ArrayList<String> options) {
         this.addSurveyQuestion(new SurveyQuestion(question, options, type));
