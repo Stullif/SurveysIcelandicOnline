@@ -92,7 +92,6 @@ public class HomeController {
             list.add(options[i]);
         }
         model.addAttribute("optionList", list);
-        //SurveyManager surveyManager = new SurveyManager();
         return "SurveyCreator";
     }
     @RequestMapping(value = "/surveyviewer", method = RequestMethod.GET)
