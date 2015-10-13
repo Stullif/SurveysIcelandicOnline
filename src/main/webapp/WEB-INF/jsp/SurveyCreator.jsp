@@ -13,21 +13,36 @@
 <div id="currentSurvey">
 
 </div>
-<label>Select type of question:
     <form action="/surveycreator" method="POST">
-        <select name="typeQuestion" id="typequestion">
-            <c:forEach items="${optionList}" var="optionList">
-                <option value='
-                <c:out value="${optionList}"/>
-                '>
-                    <c:out value="${optionList}"/>
-                </option>
-            </c:forEach>
-        </select>
+        <label>Select type of question:
+            <select name="typeQuestion" id="typeQuestion">
+                <c:forEach items="${optionList}" var="optionList">
+                    <option value='
+                        <c:out value="${optionList}"/>
+                    '>
+                        <c:out value="${optionList}"/>
+                    </option>
+                </c:forEach>
+            </select>
+        </label>
+        <br>
+        <label>Write Question:
+            <input type="text" name="question" id="question">
+        </label>
+        <br>
         <input type="checkbox" name="finished" id="finished">Survey Finished</input>
+        <br>
         <input type="submit" value="Submit">
     </form>
-</label>
+    <div class="workingSurvey">
+        <c:forEach items="${survey.getQuestions()}" var="surveyQuestions">
+            <p>
+                <c:out value="${surveyQuestions.getQuestion()}"/>
+                <c:out value="${survey.getNumQuestions()}"/>
+
+            </p>
+        </c:forEach>
+    </div>
 </body>
 <footer>Class HBV501G, University of Iceland, Fall 2015</footer>
 </html>

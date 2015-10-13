@@ -102,8 +102,14 @@ public class HomeController {
     @RequestMapping(value = "/surveycreator", method = RequestMethod.POST)
     public String surveycreator(@ModelAttribute("survey") Survey survey, HttpServletRequest request, Model model) {
         survey.setFinished(null != request.getParameter("finished"));
+        String question = request.getParameter("question").trim();
+        String type = request.getParameter("typeQuestion").trim();
+        ArrayList<String> options = new ArrayList<String>(); //REPLACE
+
+        survey.addSurveyQuestion(question, type, options);
 
         ArrayList<String> list = this.populateDropDownList(this.options);
+
         model.addAttribute("optionList", list);
         model.addAttribute("survey", survey);
         if(survey.isFinished()) {

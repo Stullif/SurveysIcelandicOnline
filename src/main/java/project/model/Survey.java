@@ -15,6 +15,12 @@ public class Survey {
     public Survey(String name) {
         this.name = name;
     }
+    public void addSurveyQuestion(String question, String type, ArrayList<String> options) {
+        this.addSurveyQuestion(new SurveyQuestion(question, options, type));
+    }
+    public ArrayList<SurveyQuestion> getQuestions() {
+        return this.questions;
+    }
     public void addSurveyQuestion(SurveyQuestion question) {
         this.questions.add(question);
         this.questionCounter++;
