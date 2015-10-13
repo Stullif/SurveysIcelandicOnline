@@ -38,8 +38,7 @@
         <c:forEach items="${survey.getQuestions()}" var="surveyQuestions">
             <p>
                 <c:out value="${surveyQuestions.getQuestion()}"/>
-                <c:out value="${survey.getNumQuestions()}"/>
-
+                <c:out value="${surveyQuestions.getType()}"/>
             </p>
         </c:forEach>
     </div>

@@ -91,28 +91,28 @@ public class HomeController {
         // Look at the User.jsp file in /main/webapp/WEB-INF/jsp/ to see how the data is accessed
         return "User";
     }
-
+    boolean startup = true;
     @RequestMapping(value = "/surveycreator", method = RequestMethod.GET)
     public String surveycreator(Model model) {
         ArrayList<String> list = this.populateDropDownList(this.options);
         model.addAttribute("optionList", list);
-        model.addAttribute("survey", new Survey("Test Survey"));
+        model.addAttribute("survey", surveyManager.startSurveyCreation("test survey"));
         return "SurveyCreator";
     }
     @RequestMapping(value = "/surveycreator", method = RequestMethod.POST)
-    public String surveycreator(@ModelAttribute("survey") Survey survey, HttpServletRequest request, Model model) {
-        survey.setFinished(null != request.getParameter("finished"));
+    public String surveycreator(HttpServletRequest request, Model model) {
+        surveyManager.setSurveyFinished(null != request.getParameter("finished"));
         String question = request.getParameter("question").trim();
         String type = request.getParameter("typeQuestion").trim();
         ArrayList<String> options = new ArrayList<String>(); //REPLACE
 
-        survey.addSurveyQuestion(question, type, options);
+        surveyManager.addSurveyQuestion(question, type, options);
 
         ArrayList<String> list = this.populateDropDownList(this.options);
 
         model.addAttribute("optionList", list);
-        model.addAttribute("survey", survey);
-        if(survey.isFinished()) {
+        model.addAttribute("survey", surveyManager.getWorkingSurvey());
+        if(surveyManager.isSurveyFinished()) {
             return "CreationComplete";
         }
         return "SurveyCreator";
