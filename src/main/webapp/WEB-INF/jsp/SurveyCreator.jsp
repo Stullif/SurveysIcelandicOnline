@@ -7,15 +7,8 @@
 
 <head>
     <title>Survey Creator</title>
-    <c:set var="counter" scope="session" value=""/>
 </head>
 <body>
-<%!
-String currentItem(int counter){
-    String result = "option"+counter;
-    return result;
-}
-%>
 <h1>Survey Creator</h1>
 <div id="currentSurvey">
 
