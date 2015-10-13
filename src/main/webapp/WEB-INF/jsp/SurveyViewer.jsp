@@ -12,6 +12,7 @@
 
 <h1>Survey Viewer</h1>
 <p>Please Select </p>
+<p>Entry in database: ${surveyName}</p>
 
 </body>
 <footer>Class HBV501G, University of Iceland, Fall 2015</footer>

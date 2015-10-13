@@ -86,15 +86,18 @@ public class HomeController {
     public String surveycreator(Model model) {
         String[] options = new String[]{"Drop Down Menu","Radio Button","Text Input","Multiple Choice"};
         model.addAttribute("numAttributes", options.length);
+        java.util.ArrayList<String> list = new java.util.ArrayList<String>();
         for(int i = 0; i < options.length; i++) {
             model.addAttribute("option" + i, options[i]);
+            list.add(options[i]);
         }
+        model.addAttribute("optionList", list);
         //SurveyManager surveyManager = new SurveyManager();
-        model.addAttribute("surveyName",surveyManager.output);
         return "SurveyCreator";
     }
     @RequestMapping(value = "/surveyviewer", method = RequestMethod.GET)
     public String surveyviewer(Model model) {
+        model.addAttribute("surveyName",surveyManager.output);
         return "SurveyViewer";
     }
 }
