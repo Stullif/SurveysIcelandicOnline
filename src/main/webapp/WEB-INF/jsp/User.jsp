@@ -12,7 +12,7 @@
 
     <h1>User Page</h1>
     <p>Here could be some user information</p>
-
+    <!--
     <table border="1px gray">
         <thead>
             <tr style="font-weight: 600;">
@@ -23,14 +23,15 @@
             </tr>
         </thead>
         <tbody>
-            <tr><!--
+            <tr>
                 <td>${name}</td>
                 <td>${job}</td>
                 <td>${email}</td>
                 <td>${description}</td>
-            </tr>-->
+            </tr>
         </tbody>
     </table>
+    -->
 
 
     </body>
