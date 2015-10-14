@@ -5,7 +5,6 @@
 
 <html lang="en">
 
-<<<<<<< HEAD
     <head>
         <title>Survey System</title>
         <link rel="stylesheet" href="/css/style.css" type='text/css'>
