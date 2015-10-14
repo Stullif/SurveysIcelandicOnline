@@ -23,12 +23,12 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
+            <tr><!--
                 <td>${name}</td>
                 <td>${job}</td>
                 <td>${email}</td>
                 <td>${description}</td>
-            </tr>
+            </tr>-->
         </tbody>
     </table>
 
