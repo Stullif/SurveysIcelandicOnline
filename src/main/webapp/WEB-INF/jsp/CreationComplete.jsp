@@ -7,6 +7,7 @@
 
 <head>
     <title>Survey Creation Completed</title>
+    <link rel="stylesheet" href="/css/style.css" type='text/css'>
 </head>
     <body>
     <h1>Select where to save</h1>

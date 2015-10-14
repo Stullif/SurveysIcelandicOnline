@@ -7,6 +7,7 @@
 
 <head>
     <title>Survey Creator</title>
+    <link rel="stylesheet" href="/css/style.css" type='text/css'>
 </head>
 <body>
 <h1>Survey Creator</h1>
