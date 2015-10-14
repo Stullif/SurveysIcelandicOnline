@@ -4,11 +4,14 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <html lang="en"  xmlns:th="http://www.thymeleaf.org">
+
     <head>
         <title>Survey Creator</title>
+        <link rel="stylesheet" href="/css/style.css" type='text/css'>
     </head>
+
     <body>
-    <h1>Survey Creator</h1>
+        <h1>Survey Creator</h1>
 
         <form action="/surveycreator" method="POST">
             <label>Select type of question:
@@ -27,7 +30,7 @@
                 <input type="text" name="question" id="question">
             </label>
             <br>
-                <input type="checkbox" name="finished" id="finished">Survey Finished</input>
+            <input type="checkbox" name="finished" id="finished">Survey Finished</input>
             <br>
             <input type="submit" value="Submit">
         </form>

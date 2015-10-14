@@ -5,8 +5,10 @@
 
 <html lang="en">
 
+<<<<<<< HEAD
     <head>
         <title>Survey System</title>
+        <link rel="stylesheet" href="/css/style.css" type='text/css'>
     </head>
     <body>
         <h1>Survey Viewer</h1>

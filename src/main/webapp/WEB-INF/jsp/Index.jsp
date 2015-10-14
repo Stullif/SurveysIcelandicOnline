@@ -11,7 +11,6 @@
     <body class="center">
         <h1>Survey Interface</h1>
         <p>Please Select </p>
-        <a href="/user">Usershizzle</a>
         <br>
         <a href="/surveyviewer">View Surveys</a>
         <form action="/surveycreator" method="get">
