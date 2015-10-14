@@ -11,6 +11,7 @@ public class DBConnector {
     private Statement st;
     private ResultSet resultSet;
     private ArrayList<String> results;
+    private ArrayList<Survey> surveys;
     public String user = "postgres";
     public String password = "Enter password here";
     public String dbLink = "jdbc:postgresql://localhost:5432/Surveys";
@@ -19,7 +20,7 @@ public class DBConnector {
         st = null;
         resultSet = null;
         String sql = "CREATE TABLE IF NOT EXISTS SURVEYS " +
-                "(id INTEGER not NULL, " +
+                "(id SERIAL, " +
                 " surveyName VARCHAR(255), " +
                 " numQuestions VARCHAR(255), " +
                 " PRIMARY KEY ( id ))";
@@ -43,7 +44,7 @@ public class DBConnector {
             }
         }
     }
-    public String[] executeQuery(String sql) {
+    public ArrayList<Survey> executeQuery(String sql) {
         c = null;
         st = null;
         resultSet = null;
@@ -53,8 +54,12 @@ public class DBConnector {
             this.st = c.createStatement();
             this.resultSet = st.executeQuery(sql);
             this.results = new ArrayList<String>();
+            this.surveys = new ArrayList<Survey>();
             while(this.resultSet.next()) {
-                results.add(this.resultSet.getString("surveyName")+ "\t" + resultSet.getString("numQuestions"));
+                String name = this.resultSet.getString("surveyName"),
+                        numQuestions = resultSet.getString("numQuestions");
+                this.results.add(name + "\t" + numQuestions);
+                this.surveys.add(SurveyManager.parseSurvey(name, numQuestions));
             }
         }catch(Exception e){
             System.out.println(e.getMessage());
@@ -69,7 +74,7 @@ public class DBConnector {
                 e.printStackTrace();
             }
         }
-        return this.results.toArray(new String[results.size()]);
+        return this.surveys;
     }
     public void executeUpdate(String sql) {
         c = null;

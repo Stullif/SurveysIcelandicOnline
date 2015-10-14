@@ -6,16 +6,16 @@ import java.util.ArrayList;
  * Created by gudkj on 10/12/2015.
  */
 public class SurveyManager {
-    private String[] results;
+    private ArrayList<String> results;
     private DBConnector dbConnector;
     public String output;
     private Survey workingSurvey;
     public SurveyManager() {
         this.dbConnector = new DBConnector();
-        this.dbConnector.executeUpdate("INSERT INTO SURVEYS(id,surveyName,numQuestions) " +
-                "VALUES (1,'FirstSurvey', '15')");
-        results = this.dbConnector.executeQuery("SELECT * FROM SURVEYS");
-        output = results[0];
+        this.dbConnector.executeUpdate("INSERT INTO SURVEYS(surveyName,numQuestions) " +
+                "VALUES ('FirstSurvey', '15')");
+        //System.out.println(this.dbConnector.executeQuery("SELECT * FROM SURVEYS").get(0).getName());
+        //output = results.get(0);
     }
     public Survey startSurveyCreation(String name) {
         this.workingSurvey = new Survey(name);
@@ -32,5 +32,23 @@ public class SurveyManager {
     }
     public boolean isSurveyFinished() {
         return this.workingSurvey.isFinished();
+    }
+    public ArrayList<Survey> getSurveyList() {
+        ArrayList<Survey> list = this.getAllSurveys();
+        return list;
+    }
+    public ArrayList<Survey> getAllSurveys() {
+        ArrayList<Survey> list = dbConnector.executeQuery("SELECT * FROM Surveys");
+        return list;
+    }
+    public static Survey parseSurvey(String name, String numQuestions) {
+        return new Survey(name);
+    }
+    public boolean saveWorkingSurvey() {
+        String name = this.workingSurvey.getName();
+        //System.out.println(name);
+        String sql = "INSERT INTO SURVEYS(surveyName,numQuestions) " + "VALUES ('"+name+"', '15')";
+        this.dbConnector.executeUpdate(sql);
+        return true;
     }
 }

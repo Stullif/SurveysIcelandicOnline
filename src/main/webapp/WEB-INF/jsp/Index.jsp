@@ -17,9 +17,8 @@
     <a href="/surveycreator">Create Survey</a>
     <br>
     <a href="/surveyviewer">View Surveys</a>
-    <form action="/" method="POST">
-        First name: <input type="text" name="fname"><br>
-        Last name: <input type="text" name="lname"><br>
+    <form action="/surveycreator" method="get">
+        Name: <input type="text" name="name"><br>
         <input type="submit" value="Submit">
     </form>
     </body>

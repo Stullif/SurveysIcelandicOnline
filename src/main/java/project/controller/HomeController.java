@@ -6,6 +6,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import project.model.SurveyManager;
 import project.model.Survey;
 import project.service.StringManipulationService;
@@ -50,6 +52,7 @@ public class HomeController {
         // (the Index.jsp file) that is in the path /main/webapp/WEB-INF/jsp/
         // If you change "Index" to something else, be sure you have a .jsp
         // file that has the same name
+        model.addAttribute("name", "");
         return "User";
     }
 
@@ -96,12 +99,15 @@ public class HomeController {
     public String surveycreator(Model model) {
         ArrayList<String> list = this.populateDropDownList(this.options);
         model.addAttribute("optionList", list);
-        model.addAttribute("survey", surveyManager.startSurveyCreation("test survey"));
+        model.addAttribute("survey", surveyManager.startSurveyCreation("namerinos"));
         return "SurveyCreator";
     }
     @RequestMapping(value = "/surveycreator", method = RequestMethod.POST)
     public String surveycreator(HttpServletRequest request, Model model) {
         surveyManager.setSurveyFinished(null != request.getParameter("finished"));
+        if(surveyManager.isSurveyFinished()) {
+            return "CreationComplete";
+        }
         String question = request.getParameter("question").trim();
         String type = request.getParameter("typeQuestion").trim();
         ArrayList<String> options = new ArrayList<String>(); //REPLACE
@@ -112,14 +118,18 @@ public class HomeController {
 
         model.addAttribute("optionList", list);
         model.addAttribute("survey", surveyManager.getWorkingSurvey());
-        if(surveyManager.isSurveyFinished()) {
-            return "CreationComplete";
-        }
         return "SurveyCreator";
     }
     @RequestMapping(value = "/surveyviewer", method = RequestMethod.GET)
     public String surveyviewer(Model model) {
-        model.addAttribute("surveyName",surveyManager.output);
+        model.addAttribute("surveys", surveyManager.getSurveyList());
+        return "SurveyViewer";
+    }
+    @RequestMapping(value = "/surveyviewer", method = RequestMethod.POST)
+    public String surveyviewer(Model model, HttpServletRequest request) {
+        boolean saved = surveyManager.saveWorkingSurvey();
+        if(!saved) System.out.println("Survay dun bin fucked");
+        model.addAttribute("surveys",surveyManager.getSurveyList());
         return "SurveyViewer";
     }
 }

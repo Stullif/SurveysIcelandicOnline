@@ -10,9 +10,7 @@
 </head>
 <body>
 <h1>Survey Creator</h1>
-<div id="currentSurvey">
 
-</div>
     <form action="/surveycreator" method="POST">
         <label>Select type of question:
             <select name="typeQuestion" id="typeQuestion">
