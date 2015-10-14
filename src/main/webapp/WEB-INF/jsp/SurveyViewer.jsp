@@ -5,19 +5,18 @@
 
 <html lang="en">
 
-<head>
-    <title>Survey System</title>
-</head>
-<body>
-
-<h1>Survey Viewer</h1>
-<h2>Entries in database: </h2>
-<c:forEach items="${surveys}" var="survey">
-    <p>
-        <c:out value="${survey.getName()}"/>
-    </p>
-</c:forEach>
-<a href="/">Home</a>
-</body>
-<footer>Class HBV501G, University of Iceland, Fall 2015</footer>
+    <head>
+        <title>Survey System</title>
+    </head>
+    <body>
+        <h1>Survey Viewer</h1>
+        <h2>Entries in database: </h2>
+        <c:forEach items="${surveys}" var="survey">
+            <p>
+                <c:out value="${survey.getName()}"/>
+            </p>
+        </c:forEach>
+        <a href="/">Home</a>
+    </body>
+    <footer>Class HBV501G, University of Iceland, Fall 2015</footer>
 </html>

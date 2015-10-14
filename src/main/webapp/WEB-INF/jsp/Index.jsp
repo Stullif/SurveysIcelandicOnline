@@ -9,16 +9,15 @@
         <link rel="stylesheet" href="/css/style.css" type='text/css'>
     </head>
     <body class="center">
-
-    <h1>Survey Interface</h1>
-    <p>Please Select </p>
-    <a href="/user">Usershizzle</a>
-    <br>
-    <a href="/surveyviewer">View Surveys</a>
-    <form action="/surveycreator" method="get">
-        Survey name: <input type="text" name="name">
-        <input type="submit" value="Create Survey">
-    </form>
+        <h1>Survey Interface</h1>
+        <p>Please Select </p>
+        <a href="/user">Usershizzle</a>
+        <br>
+        <a href="/surveyviewer">View Surveys</a>
+        <form action="/surveycreator" method="get">
+            Survey name: <input type="text" name="name">
+            <input type="submit" value="Create Survey">
+        </form>
     </body>
     <footer>Class HBV501G, University of Iceland , Fall 2015</footer>
 </html>

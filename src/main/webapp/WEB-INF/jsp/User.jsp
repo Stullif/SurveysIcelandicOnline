@@ -7,6 +7,7 @@
 
     <head>
         <title>User Page</title>
+        <link rel="stylesheet" href="/css/style.css" type='text/css'>
     </head>
     <body>
 
@@ -15,7 +16,7 @@
 
     <table border="1px gray">
         <thead>
-            <tr style="font-weight: 600;">
+            <tr class="font-weight">
                 <td>Name</td>
                 <td>Job</td>
                 <td>email</td>
@@ -32,7 +33,5 @@
         </tbody>
     </table>
 
-
     </body>
-
 </html>
