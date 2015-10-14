@@ -14,12 +14,10 @@
     <p>Please Select </p>
     <a href="/user">Usershizzle</a>
     <br>
-    <a href="/surveycreator">Create Survey</a>
-    <br>
     <a href="/surveyviewer">View Surveys</a>
     <form action="/surveycreator" method="get">
-        Name: <input type="text" name="name"><br>
-        <input type="submit" value="Submit">
+        Survey name: <input type="text" name="name">
+        <input type="submit" value="Create Survey">
     </form>
     </body>
     <footer>Class HBV501G, University of Iceland , Fall 2015</footer>

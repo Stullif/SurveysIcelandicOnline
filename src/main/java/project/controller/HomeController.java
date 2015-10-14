@@ -3,11 +3,7 @@ package project.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import project.model.SurveyManager;
 import project.model.Survey;
 import project.service.StringManipulationService;
@@ -94,12 +90,11 @@ public class HomeController {
         // Look at the User.jsp file in /main/webapp/WEB-INF/jsp/ to see how the data is accessed
         return "User";
     }
-    boolean startup = true;
     @RequestMapping(value = "/surveycreator", method = RequestMethod.GET)
-    public String surveycreator(Model model) {
+    public String surveycreator(@RequestParam("name") String name, Model model) {
         ArrayList<String> list = this.populateDropDownList(this.options);
         model.addAttribute("optionList", list);
-        model.addAttribute("survey", surveyManager.startSurveyCreation("namerinos"));
+        model.addAttribute("survey", surveyManager.startSurveyCreation(name));
         return "SurveyCreator";
     }
     @RequestMapping(value = "/surveycreator", method = RequestMethod.POST)

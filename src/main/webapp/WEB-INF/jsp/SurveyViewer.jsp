@@ -11,13 +11,13 @@
 <body>
 
 <h1>Survey Viewer</h1>
-<p>Please Select </p>
-<p>Entries in database: </p>
+<h2>Entries in database: </h2>
 <c:forEach items="${surveys}" var="survey">
     <p>
         <c:out value="${survey.getName()}"/>
     </p>
 </c:forEach>
+<a href="/">Home</a>
 </body>
 <footer>Class HBV501G, University of Iceland, Fall 2015</footer>
 </html>

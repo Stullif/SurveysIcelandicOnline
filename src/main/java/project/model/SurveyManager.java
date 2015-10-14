@@ -12,10 +12,6 @@ public class SurveyManager {
     private Survey workingSurvey;
     public SurveyManager() {
         this.dbConnector = new DBConnector();
-        this.dbConnector.executeUpdate("INSERT INTO SURVEYS(surveyName,numQuestions) " +
-                "VALUES ('FirstSurvey', '15')");
-        //System.out.println(this.dbConnector.executeQuery("SELECT * FROM SURVEYS").get(0).getName());
-        //output = results.get(0);
     }
     public Survey startSurveyCreation(String name) {
         this.workingSurvey = new Survey(name);
@@ -46,7 +42,6 @@ public class SurveyManager {
     }
     public boolean saveWorkingSurvey() {
         String name = this.workingSurvey.getName();
-        //System.out.println(name);
         String sql = "INSERT INTO SURVEYS(surveyName,numQuestions) " + "VALUES ('"+name+"', '15')";
         this.dbConnector.executeUpdate(sql);
         return true;

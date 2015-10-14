@@ -9,7 +9,7 @@
     <title>Survey Creation Completed</title>
 </head>
     <body>
-    <h1>It been done</h1>
+    <h1>Select where to save</h1>
     <div class="workingSurvey">
         <c:forEach items="${survey.getQuestions()}" var="surveyQuestions">
             <p>
