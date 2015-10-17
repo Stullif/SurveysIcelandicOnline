@@ -5,19 +5,19 @@ package project.model;
  */
 public class Visualisation {
     private Survey d = null;
-    private int o = null;
+    //private int o = null;
 
     public Visualisation(){
-        this.d = null;
-        this.o = null;
+        //this.d = null;
+        //this.o = null;
     }
 
     public Visualisation(Survey data, int opt){
-        if(opt != null){
+        //if(opt != null){
             switch(opt){
                 case 1:
                     break;
             }
-        }
+        //}
     }
 }

@@ -14,7 +14,7 @@ public class Visualizer {
         visualize(this.data, options);
     }
 
-    public visualize(Survey d, int o){
+    public void visualize(Survey d, int o){
         this.v = new Visualisation(d,o);
     }
 }
