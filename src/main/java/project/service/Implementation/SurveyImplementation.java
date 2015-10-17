@@ -13,14 +13,14 @@ import java.util.List;
  * Created by Jakob on 17.10.2015.
  */
 
-@Service
+//@Service
 public class SurveyImplementation implements SurveyService {
 
     // Instance Variables
     SurveyRepository repository;
 
     // Dependency Injection
-    @Autowired
+    //@Autowired
     public SurveyImplementation(SurveyRepository repository) {
         this.repository = repository;
     }
@@ -61,3 +61,4 @@ public class SurveyImplementation implements SurveyService {
         return repository.findByName(name);
     }
 }
+
