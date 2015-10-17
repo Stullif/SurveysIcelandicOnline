@@ -14,12 +14,10 @@
         <h1>Survey Creator</h1>
 
         <form action="/surveycreator" method="POST">
-            <label>Select type of question:
+            <label >Select type of question:
                 <select name="typeQuestion" id="typeQuestion">
                     <c:forEach items="${optionList}" var="optionList">
-                        <option value='
-                            <c:out value="${optionList}"/>
-                        '>
+                        <option value='<c:out value="${optionList}"/>'>
                             <c:out value="${optionList}"/>
                         </option>
                     </c:forEach>
@@ -30,10 +28,9 @@
                 <input type="text" name="question" id="question">
             </label>
             <br>
-            <input type="checkbox" name="finished" id="finished">Survey Finished</input>
-            <br>
-            <input type="submit" value="Submit">
+            <input type="submit" value="Add question">
         </form>
+
         <div class="workingSurvey">
             <c:forEach items="${survey.getQuestions()}" var="surveyQuestions">
                 <p>
@@ -42,6 +39,9 @@
                 </p>
             </c:forEach>
         </div>
+        <form action="/surveycreator" method="POST">
+            <input type="submit" id="finished" name="finished" value="Submit Survey">
+        </form>
     </body>
     <footer>Class HBV501G, University of Iceland, Fall 2015</footer>
 </html>
