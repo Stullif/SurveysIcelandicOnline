@@ -37,6 +37,7 @@ public class SurveyManager {
         ArrayList<Survey> list = dbConnector.executeQuery("SELECT * FROM Surveys");
         return list;
     }
+
     public static Survey parseSurvey(String name, String numQuestions) {
         return new Survey(name);
     }

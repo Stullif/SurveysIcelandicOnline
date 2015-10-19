@@ -5,13 +5,13 @@
 
 <html lang="en">
 
-<head>
-    <title>Demo Page</title>
-</head>
-<body>
+    <head>
+        <title>Demo Page</title>
+    </head>
+    <body>
 
-<h1>Demo Page</h1>
+        <h1>Demo Page</h1>
 
-</body>
+    </body>
 
 </html>

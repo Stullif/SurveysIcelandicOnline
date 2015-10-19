@@ -7,15 +7,16 @@
 
     <head>
         <title>User Page</title>
+        <link rel="stylesheet" href="/css/style.css" type='text/css'>
     </head>
     <body>
 
     <h1>User Page</h1>
     <p>Here could be some user information</p>
-    <!--
+
     <table border="1px gray">
         <thead>
-            <tr style="font-weight: 600;">
+            <tr class="font-weight">
                 <td>Name</td>
                 <td>Job</td>
                 <td>email</td>
@@ -31,9 +32,6 @@
             </tr>
         </tbody>
     </table>
-    -->
-
 
     </body>
-
 </html>

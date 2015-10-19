@@ -8,18 +8,16 @@
     <head>
         <title>Survey System</title>
         <link rel="stylesheet" href="/css/style.css" type='text/css'>
-        <meta charset="ISO-8859-1">
     </head>
     <body class="center">
-
-    <h1>Survey Interfacððððððððððððððððððe</h1>
-    <p>Please Select </p>
-    <br>
-    <a href="/surveyviewer">View Surveys</a>
-    <form action="/surveycreator" method="get">
-        Survey name: <input type="text" name="name">
-        <input type="submit" value="Create Survey">
-    </form>
+        <h1>Survey Interface</h1>
+        <p>Please Select </p>
+        <br>
+        <a href="/surveyviewer">View Surveys</a>
+        <form action="/surveycreator" method="get">
+            Survey name: <input type="text" name="name">
+            <input type="submit" value="Create Survey">
+        </form>
     </body>
     <footer>Class HBV501G, University of Iceland , Fall 2015</footer>
 </html>

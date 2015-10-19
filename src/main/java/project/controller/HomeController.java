@@ -53,21 +53,24 @@ public class HomeController {
     }
 
     @RequestMapping(value = "/surveycreator", method = RequestMethod.GET)
-    public String surveycreator(@RequestParam("name") String name, Model model) {
+    public String surveyCreator(@RequestParam(value="name") String name, Model model) {
         ArrayList<String> list = this.populateDropDownList(this.options);
         model.addAttribute("optionList", list);
         model.addAttribute("survey", surveyManager.startSurveyCreation(name));
         return "SurveyCreator";
     }
+
     @RequestMapping(value = "/surveycreator", method = RequestMethod.POST)
-    public String surveycreator(HttpServletRequest request, Model model) {
+    public String surveyCreator(HttpServletRequest request, Model model) {
         surveyManager.setSurveyFinished(null != request.getParameter("finished"));
         if(surveyManager.isSurveyFinished()) {
             return "CreationComplete";
         }
+
         String question = request.getParameter("question").trim();
         String type = request.getParameter("typeQuestion").trim();
         ArrayList<String> options = new ArrayList<String>(); //REPLACE
+
 
         surveyManager.addSurveyQuestion(question, type, options);
 
@@ -77,16 +80,19 @@ public class HomeController {
         model.addAttribute("survey", surveyManager.getWorkingSurvey());
         return "SurveyCreator";
     }
+
     @RequestMapping(value = "/surveyviewer", method = RequestMethod.GET)
-    public String surveyviewer(Model model) {
+    public String surveyViewer(Model model) {
         model.addAttribute("surveys", surveyManager.getSurveyList());
         return "SurveyViewer";
     }
+
     @RequestMapping(value = "/surveyviewer", method = RequestMethod.POST)
-    public String surveyviewer(Model model, HttpServletRequest request) {
+    public String surveyViewer(Model model, HttpServletRequest request) {
         boolean saved = surveyManager.saveWorkingSurvey();
         if(!saved) System.out.println("Survay dun bin fucked");
         model.addAttribute("surveys",surveyManager.getSurveyList());
         return "SurveyViewer";
     }
+
 }

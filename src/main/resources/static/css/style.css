@@ -1,11 +1,18 @@
 h1 {
     font-size: 3em;
 }
+
 body {
     background-image: url("../images/background-blue.jpg");
     background-size: cover;
 }
+
 .center {
     margin: auto;
     width: 60%;
 }
+
+.font-weight{
+    font-weight: bold;
+}
+
