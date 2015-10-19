@@ -13,7 +13,7 @@ public class DBConnector {
     private ArrayList<String> results;
     private ArrayList<Survey> surveys;
     public String user = "postgres";
-    public String password = "Enter your password here";
+    public String password = "hoppilius4";
     public String dbLink = "jdbc:postgresql://localhost:5432/Surveys";
     public DBConnector() {
         c = null;
