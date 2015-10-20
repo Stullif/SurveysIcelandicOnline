@@ -16,13 +16,13 @@ public interface SurveyService {
      * @param {@link Survey} to be saved
      * @return {@link Survey} that was saved
      */
-    Survey save(Survey postitNote);
+    Survey save(Survey survey);
 
     /**
      * Delete {@link Survey}
      * @param {@link Survey} to be deleted
      */
-    void delete(Survey postitNote);
+    void delete(Survey survey);
 
     /**
      * Get all {@link Survey}s

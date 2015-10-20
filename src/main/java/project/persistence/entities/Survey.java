@@ -1,8 +1,5 @@
 package project.persistence.entities;
 
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
-import project.persistence.entities.Survey;
 import javax.persistence.*;
 /**
  * Created by Jakob on 17.10.2015.
@@ -19,7 +16,8 @@ public class Survey {
     private String name;
     private String questionNumber;
 
-    public Survey(String name, String note) {
+
+    public Survey(String name, String questionNumber) {
         this.name = name;
         this.questionNumber = questionNumber;
     }
@@ -44,9 +42,8 @@ public class Survey {
         return questionNumber;
     }
 
-    public void setQuestionNumber(String note) {
+    public void setQuestionNumber(String questionNumber) {
         this.questionNumber = questionNumber;
     }
-
 
 }
